@@ -6,7 +6,7 @@ const { body, validationResult } = require('express-validator');
 const fetchuser = require('../middleware/fetchuser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = "helloPrabhat!"
+const JWT_SECRET = process.env.SECRET_KEY;
 
 // Route 1 to register a new user
 let success = false;
@@ -87,6 +87,7 @@ router.post('/login', [
 
     const { email, password } = req.body;
     try {
+        let success = false;
         let user = await User.findOne({ email });
 
         // Check if user exists

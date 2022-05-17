@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://admin:Prbt5487@cluster0.tikzp.mongodb.net/inotebook?retryWrites=true&w=majority';
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
+const mongoURI = process.env.DATABASE;
 
 
 const connectToMongo = () => {

@@ -3,6 +3,9 @@ const app = express();
 const connectToMongo = require('./db');
 const router = express.Router();
 var cors = require('cors')
+const dotenv = require('dotenv');
+app.use(cors())
+dotenv.config({ path: './config.env' });
 app.use(cors())
 
 
