@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 /Server/node_modules
 /inotebook/node_modules
+=======
+node_modules
+>>>>>>> 5b659b05714f648fd6cc79ccba6e9f689f188f96
 config.env

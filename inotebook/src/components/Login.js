@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
     const history = useNavigate()
-    const host = "http://localhost:4000";
+   
     const [credentials, setCredentials] = React.useState({email: "", password: ""});
 
 
@@ -12,7 +12,7 @@ const Login = (props) => {
         e.preventDefault();
        
         
-            const res2 = await fetch(`${host}/auth/login`, {
+            const res2 = await fetch(`auth/login`, {
               method: "POST",
               headers: {
                   "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const Login = (props) => {
           });
         
             const data = await res2.json();
-            // console.log(data);
+            console.log(data);
             if(data.success) {
                 // console.log("success");
                 localStorage.setItem("token", data.authtoken);               

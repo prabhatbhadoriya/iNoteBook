@@ -2,8 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Signup = (props) => {
-    const history = useNavigate()
-    const host = "http://localhost:4000";
+    const history = useNavigate()   
     const [credentials, setCredentials] = React.useState({name: "",email: "", password: ""});
 
 
@@ -12,7 +11,7 @@ const Signup = (props) => {
         e.preventDefault();
        
         
-            const res2 = await fetch(`${host}/auth/createuser`, {
+            const res2 = await fetch(`auth/createuser`, {
               method: "POST",
               headers: {
                   "Content-Type": "application/json",
@@ -25,18 +24,15 @@ const Signup = (props) => {
           });
         
             const data = await res2.json();
-            console.log(data);
-            if(data.success) {
-                console.log("success");
+            // console.log(data);
+            if(data.success) {                
                 localStorage.setItem("token", data.token);
                 history("/");
                 props.showAlert("Account Created Successfully!", "success");
             }
-            else {
-                    
+            else {                    
                     props.showAlert("Invalid credentials", "danger");
-            }
-          
+            }          
     }
 
     const onChange = (e) => {

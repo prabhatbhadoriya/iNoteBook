@@ -6,8 +6,6 @@ var cors = require('cors')
 const dotenv = require('dotenv');
 app.use(cors())
 dotenv.config({ path: './config.env' });
-app.use(cors())
-
 
 connectToMongo();
 const port = process.env.PORT || 4000;

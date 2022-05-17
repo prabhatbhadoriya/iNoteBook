@@ -89,6 +89,7 @@ router.post('/login', [
     try {
         let success = false;
         let user = await User.findOne({ email });
+        
 
         // Check if user exists
         if (!user) {
